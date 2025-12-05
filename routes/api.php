@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\authController;
+use App\Http\Controllers\referensi\kabupaten;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,10 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/user', [userController::class, 'simpanData']);
     Route::post('/user/{id}', [userController::class, 'updateData']);
     Route::delete('/user/{id}', [userController::class, 'hapusData']);
+
+    //referensi kabupaten
+    Route::get('/referensi/kabupaten', [kabupaten::class, 'index']);
+    Route::post('/referensi/kabupaten', [kabupaten::class, 'simpanData']);
+    Route::post('/referensi/kabupaten/{id}', [kabupaten::class, 'updateData']);
+    Route::delete('/referensi/kabupaten/{id}', [kabupaten::class, 'hapusData']);
 });
